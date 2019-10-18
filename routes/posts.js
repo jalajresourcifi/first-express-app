@@ -6,17 +6,19 @@ const router = express.Router()
 // Products Routes
 router.get('/', (req, res) => {
 	console.log('inside get route');
-	res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
+	res.render('add-product', {name: 'somename'});
+	// res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
 })
 
 router.get('/shop', (req, res) => {
-	res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
+	res.render('shop', {name: 'somename'});
+	// res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
 })
-
 
 // Post Routes
 router.get('/posts', (req, res) => {
-	res.sendFile(path.join(__dirname, '../', 'views', 'post.html'));
+	res.render('post', {name: 'somename'});
+	// res.sendFile(path.join(__dirname, '../', 'views', 'post.html'));
 })
 
 router.post('/posts', (req, res) => {

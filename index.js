@@ -1,10 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
-const postRoute = require('./routes/posts')
+const expressHbs  = require('express-handlebars');
+const postRoute = require('./routes/posts');
 
 const app = express();
+
+app.engine('handlebars', expressHbs({
+	extname: 'handlebars',
+    defaultLayout: ''
+}));
+app.set('view engine', 'handlebars');
+app.set('views','views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
